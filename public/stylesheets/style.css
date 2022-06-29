@@ -1,8 +1,15 @@
 body {
-  padding: 50px;
+  padding: 5px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00b7ff;
+}
+
+.nav-bar {
+  position: relative;
+  margin-bottom: 20px;
+  background-color: beige;
+  height: 30px;
 }
