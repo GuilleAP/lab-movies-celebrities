@@ -1,6 +1,6 @@
 body {
   padding: 5px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -10,6 +10,10 @@ a {
 .nav-bar {
   position: relative;
   margin-bottom: 20px;
-  background-color: beige;
+  background-color: #00b7ff;
   height: 30px;
+}
+
+.nav-bar a {
+  color: white;
 }

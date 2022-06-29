@@ -1,0 +1,13 @@
+<h2>Movie Details</h2> <br>
+
+<h3>{{response.title}}</h3> 
+<h6><b>Genre: </b>{{response.genre}}</h6> 
+<h6><b>Plot: </b>{{response.plot}}</h6>
+<br>
+<h5><b>Actors:</b></h5>
+
+<ul>
+    {{#each response.cast}}
+        <li>{{this.name}}</li>
+    {{/each}}
+</ul>

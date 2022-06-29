@@ -11,6 +11,7 @@ router.get('/movies/create-movie', (req, res, next) => {
         .catch((err) => console.log(err));
 })
 
+
 router.get('/movies', (req, res, next) => {
     Movie.find()
         .then((response) => {
@@ -21,6 +22,26 @@ router.get('/movies', (req, res, next) => {
         });
 });
 
+router.get('/movies/:id', (req, res, next) => {
+    Movie.findById(req.params.id)
+        .populate("cast")
+        .then((response) => {
+            console.log(response)
+            res.render('movies/movie-details', {response});
+        })
+        .catch((err) => {
+            next(err);
+        });
+})
+
+router.get('/movies/:id/edit', (req, res, next) => {
+    Movie.findById(req.params.id)
+    .then((movie) => {
+        console.log(movie)
+        res.render('movies/edit-movie', {movie});
+    });
+});
+
 router.post('/create-movie', (req, res, next) => {
     Movie.create(req.body)
         .then((response) => {
@@ -28,6 +49,16 @@ router.post('/create-movie', (req, res, next) => {
             res.redirect('/movies');
         })
         
+})
+
+router.post('/movies/:id/delete', (req, res, next) => {
+    Movie.findByIdAndRemove(req.params.id)
+    .then((response) => {
+        res.redirect('/movies');
+    })
+    .catch((err) => {
+        next(err);
+    });
 })
 
 module.exports = router;

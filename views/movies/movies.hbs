@@ -1,7 +1,17 @@
 <h2>Lista de peliculas</h2>
 
+<br>
+
 {{#each response}}
 
     <h4><p>{{this.title}}</p></h4>
+    <a href="/movies/{{this._id}}">Movie details</a> <br>
+    <form action="/movies/{{this.id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+    <a href="/movies/{{this.id}}/edit">Edit</a>
+
+    <br>
+    <br>
 
 {{/each}}
