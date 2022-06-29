@@ -9,16 +9,14 @@ router.get('/celebrities/create', (req, res, next) => {
 
 router.get('/celebrities', (req, res, next) => {
     Celebrity.find()
-    .then((response) => {
-      console.log(response);
-      res.render('celebrities/celebrities', {response});
-    })
-    .catch((err) => {
-      next(err);
-    })
-    
-    
-})
+        .then((response) => {
+        console.log(response);
+        res.render('celebrities/celebrities', {response});
+        })
+        .catch((err) => {
+        next(err);
+        })
+});
 
 router.post('/create', (req, res, next) => {
     Celebrity.create(req.body)

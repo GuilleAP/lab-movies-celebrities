@@ -11,6 +11,16 @@ router.get('/movies/create-movie', (req, res, next) => {
         .catch((err) => console.log(err));
 })
 
+router.get('/movies', (req, res, next) => {
+    Movie.find()
+        .then((response) => {
+            res.render('movies/movies', {response})
+        })
+        .catch((err) => {
+            next(err);
+        });
+});
+
 router.post('/create-movie', (req, res, next) => {
     Movie.create(req.body)
         .then((response) => {
